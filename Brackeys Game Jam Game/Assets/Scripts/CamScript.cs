@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class CamScript : MonoBehaviour
 {
     [SerializeField]
     Camera MainCam;
@@ -19,7 +19,8 @@ public class Move : MonoBehaviour
         MouseX = Input.GetAxis("Mouse X");
         MouseY = Input.GetAxis("Mouse Y") * -1;
         transform.Rotate(new Vector3(0, MouseX, 0));
-        MainCam.transform.Rotate(new Vector3(MouseY,0,0));
+        MainCam.transform.Rotate(new Vector3(MouseY, 0, 0));
         if (Application.isFocused) Cursor.lockState = CursorLockMode.Locked; else Cursor.lockState = CursorLockMode.None;
+
     }
 }
