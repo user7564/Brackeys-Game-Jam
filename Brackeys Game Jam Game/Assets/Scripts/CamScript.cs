@@ -7,6 +7,7 @@ public class CamScript : MonoBehaviour
     [SerializeField]
     Camera MainCam;
     float MouseX, MouseY;
+    bool EscapeMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,10 @@ public class CamScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*if (EscapeMenu)
+        {
+            return;
+        }*/
         MouseX = Input.GetAxis("Mouse X");
         MouseY = Input.GetAxis("Mouse Y") * -1;
         transform.Rotate(new Vector3(0, MouseX, 0));

@@ -13,8 +13,8 @@ public class Player_Move : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        rb.AddForce(Input.GetAxis("Vertical") * speed * Time.deltaTime * transform.forward + Input.GetAxis("Horizontal") * speed * Time.deltaTime * transform.right);
+        rb.velocity = Input.GetAxis("Horizontal") * speed * transform.right + new Vector3(0, rb.velocity.y, 0) + Input.GetAxis("Vertical") * speed * transform.forward;
     }
 }
