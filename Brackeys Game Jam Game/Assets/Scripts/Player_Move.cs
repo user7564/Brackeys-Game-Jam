@@ -4,10 +4,12 @@ public class Player_Move : MonoBehaviour
 {
     public Rigidbody rb;
     public float speed;
+    bool lockmove;
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (lockmove) return;
         //Moves the players position depending on the inputs of WASD.
         rb.velocity = Input.GetAxis("Horizontal") * speed * transform.right + new Vector3(0, rb.velocity.y, 0) + Input.GetAxis("Vertical") * speed * transform.forward;
 
@@ -17,5 +19,9 @@ public class Player_Move : MonoBehaviour
             //adds an upward force to the player (Jump).
             rb.AddForce(new Vector3(0, 1, 0), ForceMode.Impulse);
         }
+    }
+    public void Movelock(bool setstate)
+    {
+        lockmove = setstate;
     }
 }
