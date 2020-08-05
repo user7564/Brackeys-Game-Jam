@@ -5,6 +5,8 @@ public class UI : MonoBehaviour
 {
     private bool Menu_Active = false;
     public GameObject Ui;
+    public float TimeSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,7 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TimeSpeed = Time.timeScale;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Menu_Active == false)
